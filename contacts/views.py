@@ -3,6 +3,19 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from .models import Contact
 from .serializers import ContactSerializer
 from rest_framework import permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+
+class Home(APIView):
+  def get(self, request):
+    return Response({
+      'swagger': 'swagger/',
+      'register': 'api/auth/register/',
+      'token': 'api/auth/token/',
+      'list/create': 'api/contacts/',
+      'retrive, update or delete': 'api/contacts/<int:id>/'
+    })
 
 
 
